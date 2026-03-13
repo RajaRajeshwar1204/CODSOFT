@@ -1,37 +1,30 @@
-# CODSOFT
-codsoft-machine-learning-internship
-# SMS Spam Detection using Machine Learning
+# CodSoft Machine Learning Internship Projects
 
-This project builds an AI model that classifies SMS messages as **Spam** or **Legitimate (Ham)** using **TF-IDF and Logistic Regression**.
+This repository contains the projects completed during the **CodSoft Machine Learning Internship**.
 
-## Features
+## Projects
 
-* Text preprocessing using TF-IDF
-* Machine learning classification
-* Real-time user input prediction
+### 1. SMS Spam Detection
+
+Classifies SMS messages as **Spam or Legitimate** using TF-IDF and Logistic Regression.
+
+### 2. Text Generation using RNN
+
+A character-level Recurrent Neural Network that generates text based on learned patterns.
+
+### 3. Movie Recommendation System
+
+Recommends movies based on similarity between movie features.
 
 ## Technologies Used
 
 * Python
 * Pandas
 * Scikit-learn
+* PyTorch
+* NumPy
 
-## How to Run
+## Author
 
-Install dependencies:
-
-pip install -r requirements.txt
-
-Run the program:
-
-python spam_sms.py
-
-Then enter an SMS message to check whether it is spam or legitimate.
-
-## Example
-
-Input:
-Congratulations! You have won a free iPhone!
-
-Output:
-SPAM MESSAGE
+Bathini Raja Rajeshwar
+AI & ML Student
