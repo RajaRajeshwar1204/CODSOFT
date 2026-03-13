@@ -26,5 +26,5 @@ Recommends movies based on similarity between movie features.
 
 ## Author
 
-Bathini Raja Rajeshwar
+BATHINI RAJA RAJESHWAR
 AI & ML Student
