@@ -2,29 +2,18 @@ import torch
 import torch.nn as nn
 import numpy as np
 
-# ===============================
-# 1. Load Dataset
-# ===============================
-
 with open(r"C:\Users\edlap\Documents\FInal year Project\Raja\Codsoft\handwritten.txt", "r", encoding="utf-8") as f:
     text = f.read().lower()
 
-# Create character vocabulary
 chars = sorted(list(set(text)))
 vocab_size = len(chars)
 
 print("Vocabulary Size:", vocab_size)
 
-# Character mappings
 char_to_idx = {ch: i for i, ch in enumerate(chars)}
 idx_to_char = {i: ch for i, ch in enumerate(chars)}
 
-# Encode text
 encoded = np.array([char_to_idx[c] for c in text])
-
-# ===============================
-# 2. Create Training Data
-# ===============================
 
 seq_length = 50
 inputs = []
@@ -36,10 +25,6 @@ for i in range(len(encoded) - seq_length):
 
 inputs = torch.tensor(np.array(inputs))
 targets = torch.tensor(np.array(targets))
-
-# ===============================
-# 3. RNN Model
-# ===============================
 
 class CharRNN(nn.Module):
 
@@ -63,19 +48,11 @@ class CharRNN(nn.Module):
     def init_hidden(self, batch_size):
         return torch.zeros(1, batch_size, self.hidden_size)
 
-# ===============================
-# 4. Initialize Model
-# ===============================
-
 hidden_size = 128
 model = CharRNN(vocab_size, hidden_size)
 
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.003)
-
-# ===============================
-# 5. Train Model
-# ===============================
 
 epochs = 20
 batch_size = 64
@@ -103,10 +80,6 @@ for epoch in range(epochs):
 
     print(f"Epoch {epoch+1}/{epochs}, Loss: {loss.item():.4f}")
 
-# ===============================
-# 6. Text Generation
-# ===============================
-
 def generate_text(model, start_text="once ", length=200):
 
     model.eval()
@@ -133,11 +106,6 @@ def generate_text(model, start_text="once ", length=200):
         input_seq = torch.tensor([[char_idx]])
 
     return generated
-
-
-# ===============================
-# 7. Generate Text
-# ===============================
 
 print("\nGenerated Text:\n")
 
